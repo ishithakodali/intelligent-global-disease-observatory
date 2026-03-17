@@ -1,6 +1,15 @@
 # Intelligent Global Disease Observatory API
+## What it does
+ This system aggregates global health data and provides real-time disease insights through a unified API.
+
+It integrates multiple sources such as WHO, CDC, Open Targets, and PubChem to deliver:
+- Epidemiological trends  
+- Outbreak alerts  
+- Genomic associations  
+- Therapeutic signals  
 
 Backend-only FastAPI service for disease observability, enrichment, catalog search, and analytics.
+
 
 ## Core Features
 
@@ -42,22 +51,34 @@ Backend-only FastAPI service for disease observability, enrichment, catalog sear
 
 ## Local Run
 
-1. Install dependencies
+1. Create Virtual Environment
+   Mac/Linux/WSL:
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+     ```
+   powershell:
+     ```
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+2. Install dependencies
 
-```powershell
-./.venv/Scripts/python.exe -m pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 
-2. Start API
+3. Start API
 
-```powershell
-./.venv/Scripts/python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+uvicorn backend.main:app --host 127.0.0.1 --port 8000
 ```
 
-3. Verify
+4. Verify
 
-```powershell
-Invoke-RestMethod -Uri "http://127.0.0.1:8000/api/v1/health"
+```
+http://127.0.0.1:8000/api/v1/health
+http://127.0.0.1:8000/api/v1/docs
 ```
 
 ## GitHub Readiness
