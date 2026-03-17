@@ -138,3 +138,18 @@ Realtime/Operations:
 - External feed availability can vary by time/region/network policy.
 - Fallback status is intentionally explicit to preserve transparency.
 - Large-scale profile hydration is designed as incremental batches.
+
+## Architecture Flowchart
+## 🔁 Architecture Flow
+ ```
+                ┌────────────────────────────┐
+                │   External APIs / Feeds    │
+                │ WHO / CDC / Open Targets   │
+                └────────────┬───────────────┘
+                             ↓
+Client → FastAPI → Services → Providers → DB + Cache → Response
+                             ↓
+                    Background Tasks
+                   (Alert Ingestion Loop)
+                             ↓
+                      WebSocket Alerts
